@@ -1,6 +1,6 @@
 # 📂 專案檔案結構與用途說明
 
-本專案為一個結合 **YOLO 物件偵測**、**Gradio 前端介面**與 **Generative AI (N8N)** 的「古代生活情境還原系統」。以下為各檔案與資料夾的詳細用途說明。
+本專案為一個結合 **Tensorflow 物件偵測**、**Gradio 前端介面**與 **Generative AI (N8N)** 的「古代生活情境還原系統」。以下為各檔案與資料夾的詳細用途說明。
 
 ## 📁 目錄結構
 
@@ -37,7 +37,7 @@ Project_Root/
 * **用途**：**後端邏輯與工具庫 (Backend Library)**。
 * **包含類別**：
 * `Tool`：處理檔案路徑、圖片 Base64 編碼、HTML 模板填入。
-* `Camera`：控制攝影機串流、載入 TensorFlow 模型、執行 YOLO 物件偵測。
+* `Camera`：控制攝影機串流、載入 TensorFlow 模型、執行 Tensorflow 物件偵測。
 * `InternetSeletter`：負責與 N8N 自動化平台溝通，發送 Prompt 並下載生成的圖片與影片。
 
 

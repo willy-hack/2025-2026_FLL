@@ -13,7 +13,7 @@ n8n = "https://damn-hack.app.n8n.cloud/webhook/b1b68338-d74a-4ffe-8559-65b3e6666
 save_dir = "./data"
 
 # 初始化核心物件
-# Camera: 負責攝影機串流與 YOLO 辨識 (0 代表預設攝影機)
+# Camera: 負責攝影機串流與 Tensorflow 辨識 (0 代表預設攝影機)
 camera = Camera(0, "./model/")
 # Tool: 通用工具 (路徑處理、HTML生成)
 tool = Tool()
@@ -67,7 +67,7 @@ with gr.Blocks() as demo:
         # 左側：攝影機畫面
         with gr.Column():
             # 串流影像元件 (streaming=True)
-            YoloCamera = gr.Image(label="YOLO即時辨識畫面", height=350, streaming=True) 
+            TensorflowCamera = gr.Image(label="Tensorflow即時辨識畫面", height=350, streaming=True) 
             RetrieveUtensils = gr.Button("擷取物件照片") # 按下後鎖定當前辨識到的物件
         
         # 右側：器物資訊 HTML
@@ -95,8 +95,8 @@ with gr.Blocks() as demo:
     # 事件綁定 (Event Listeners)
     # ==========================================
 
-    # 1. 頁面載入時，啟動攝影機串流傳輸到 YoloCamera 元件
-    demo.load(camera.StreamVideo, None, YoloCamera)
+    # 1. 頁面載入時，啟動攝影機串流傳輸到 TensorflowCamera 元件
+    demo.load(camera.StreamVideo, None, TensorflowCamera)
     
     # 2. 點擊「擷取物件照片」按鈕：
     #    呼叫 UpdataInfomation -> 更新 HtmlInfocard, 儲存 save_info, 儲存 save_utensils_id

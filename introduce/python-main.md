@@ -1,3 +1,9 @@
+這份 `main.py` 的介紹文件整體結構很完整，但我發現有幾個格式上的小錯誤（例如粗體標記未閉合）以及列表縮排的問題。
+
+以下是經過**修復格式**並**微調內容**（使其更符合我們剛確認的 SavedModel 架構）的版本：
+
+---
+
 # 📄 main.py - 應用程式入口與介面主控檔
 
 ## 📝 檔案概述
@@ -10,13 +16,13 @@
 
 * **`fun.py`**: 提供核心功能（`Tool`, `Camera`, `InternetSeletter`）。
 * **`gradio`**: 用於構建 Web UI。
-* **`os`, `json**`: 處理檔案路徑與數據讀取。
+* **`os`**, **`json`**: 處理檔案路徑與數據讀取。
 
 ### 初始化物件
 
 在程式啟動時，會優先初始化以下核心物件：
 
-1. **Camera**: 設定攝影機 ID (預設 `0`) 與模型路徑 (`./model/`)。
+1. **Camera**: 設定攝影機 ID (預設 `0`) 與 **SavedModel 模型資料夾路徑** (`./model/`)。
 2. **Tool**: 通用工具庫。
 3. **InternetSeletter**: 設定 N8N Webhook URL 與檔案儲存路徑 (`./data`)。
 
@@ -48,7 +54,7 @@
 
 ### 2. 即時監控與資訊區 (Top Row)
 
-* **左側 (YoloCamera)**：
+* **左側 (TensorflowCamera)**：
 * 顯示攝影機的即時串流畫面 (`streaming=True`)。
 * 包含一個 **「擷取物件照片」** 按鈕。
 
@@ -82,7 +88,7 @@
 
 1. **啟動攝影機串流**
 ```python
-demo.load(camera.StreamVideo, None, YoloCamera)
+demo.load(camera.StreamVideo, None, TensorflowCamera)
 
 ```
 
